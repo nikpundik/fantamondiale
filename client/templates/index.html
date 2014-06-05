@@ -1,0 +1,138 @@
+<head>
+  <title>fantaeure</title>
+  <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="container main">
+    {{> header}}
+    {{> time}}
+    <div class="row">
+      <div class="col-sm-9">{{> rounds}}</div>
+      <div class="col-sm-3">
+        {{> table}}
+        {{> chat}}
+      </div>
+    </div>
+    <hr>
+    {{> rules}}
+  </div>
+</body>
+
+<template name="header">
+  <header>
+    <div id="login">{{> loginButtons align="left"}}</div>
+    <h1>FantaEURE - World Cup 2014 Brazil</h1>
+  </header>
+</template>
+
+<template name="time">
+  <p>{{time}}</p>
+</template>
+
+<template name="rounds">
+	<ul class="rounds">
+	{{#each rounds}}
+      {{> round}}
+    {{/each}}
+    </ul>
+</template>
+
+<template name="round">
+	<li>
+    <h2>{{end_at}} - {{title}}</h2>
+		<ul>
+		  {{#each games}}
+      		{{> game}}
+    	{{/each}}
+    </ul>
+	</li>
+</template>
+
+<template name="game">
+	<li>
+    <h3>{{team1_title}} <span class="team-score">{{score1}}</span> <span class="team-score">{{score2}}</span> {{team2_title}}</h3>
+    <form round="{{../_id}}" game="{{_id}}">
+      <input class="team-1"> 
+      <input class="team-2"> 
+      <button bonus="false">BET</button>
+      <button bonus="true">BONUS</button>
+    </form>
+    <ul class="bets">
+      {{#each bets _id}}
+        {{> bet}}
+      {{/each}}
+    </ul>
+    <div class="clearfix"></div>
+	</li>
+</template>
+
+<template name="bet">
+  <li>
+  <b>{{username}}</b> {{team1}} {{team2}} 
+  {{#if bonus}}
+    <p>BONUS</p>
+  {{/if}}
+  </li>
+</template>
+
+<template name="table">
+  <div class="table-div">
+    <h2>Classifica</h2>
+    <ul class="users-table">
+      {{#each users}}
+      <li>{{points}} - {{username}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="chat">
+  <div>
+    <h2>Chat</h2>
+    <div class="messages">
+      {{#each messages}}
+        <small>{{time}}</small>
+        <p><b>{{username}}</b> {{message}}</p> 
+      {{/each}}
+    </div>
+    <form action="">
+      <input type="text">
+      <button>SEND</button>
+    </form>
+  </div>
+</template>
+
+<template name="rules">
+  <p>Le regole sono le stesse di 2 anni fa, ossia l'obiettivo è quello di indovinare i risultati esatti delle partite in programma dal 12 giugno al 13 luglio.</p>
+  <p>Quota di iscrizione 5 euro. Il totale verrà poi suddiviso come segue:</p>
+
+  <ul>
+    <li>1 premio - 50% del totale</li>
+    <li>2 premio - 35% del totale</li>
+    <li>3 premio - 15% del totale</li>
+  </ul>
+
+  <h2>REGOLAMENTO:</h2>
+
+  <p>Il meccanismo del gioco è molto semplice. Ogni mattina verrà mandata una mail con le partite del giorno a cui bisognerà rispondere con il risultato pronosticato da voi entro e non oltre le ore 18.00 del giorno stesso.</p>
+
+  <p>Attribuzione punteggio:</p>
+
+
+  <ul>
+    <li>Se il risultato viene indovinato, verranno assegnati 3 punti ai vincitori.</li>
+    <li>Se viene indovinato il "segno" (vittoria, pareggio o sconfitta) ma non il risultato esatto, verrà assegnato 1 punto</li>
+    <li>Se non si indovina nè risultato nè "segno": 0 punti</li>
+    <li>Ogni fantagiocatore potrà avvelersi di 1 BONUS da giocare su una partita a piacere nell'arco del torneo. Questo bonus fa sì che il punteggio di quella partita verrà raddoppiato</li>
+    <li>Ad inizio torneo (entro il 12 giungo alle 18.00) il fantagiocatore deve pronosticare anche la squadra vincitrice del Mondiale 2014. a chi indovinerà verranno dati 10 Punti.</li>
+  </ul>
+
+
+  <p>In caso di mancato pronostico verrà assegnato al fantagiocatore il risultato di default (0 - 0)</p>
+
+  <p>Ovviamente chi avrà più punti vince.<br>
+  In caso di parità di punteggio si conterà il numero di risultati esatti indovinati.<br>
+  In caso di ulteriore parità gli eventuali premi spettanti verrano uniti e divisi equamente.</p>
+
+</template>
