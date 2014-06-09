@@ -565,9 +565,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/templates/template.index.js?5644859a777461dfb4e79c0e893f800dc46721da",
-      "size": 7402,
-      "hash": "5644859a777461dfb4e79c0e893f800dc46721da"
+      "url": "/client/templates/template.index.js?fcf3ed03d8966a746791ecb67ea3ba35935287ca",
+      "size": 7631,
+      "hash": "fcf3ed03d8966a746791ecb67ea3ba35935287ca"
     },
     {
       "path": "app/client/scripts/client.js",
@@ -579,31 +579,49 @@
       "hash": "6bb4352b2c101588f8ec245c030f0f66dbfed5a1"
     },
     {
-      "path": "app/models/Bets.js",
+      "path": "app/client/scripts/helpers.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/models/Bets.js?4fe6d6d2654a2dd3236c75127653de2fa89698d6",
+      "url": "/client/scripts/helpers.js?8eb155150101a28b870d04f0905797a526d8786a",
+      "size": 248,
+      "hash": "8eb155150101a28b870d04f0905797a526d8786a"
+    },
+    {
+      "path": "app/collections/Bets.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/collections/Bets.js?4fe6d6d2654a2dd3236c75127653de2fa89698d6",
       "size": 253,
       "hash": "4fe6d6d2654a2dd3236c75127653de2fa89698d6"
     },
     {
-      "path": "app/models/Messages.js",
+      "path": "app/collections/Messages.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/models/Messages.js?d9a9daf999ebcc3d325fc8ce6b1f36e3ebda7bee",
+      "url": "/collections/Messages.js?d9a9daf999ebcc3d325fc8ce6b1f36e3ebda7bee",
       "size": 65,
       "hash": "d9a9daf999ebcc3d325fc8ce6b1f36e3ebda7bee"
     },
     {
-      "path": "app/models/Rounds.js",
+      "path": "app/collections/Rounds.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/models/Rounds.js?9a6c60e23a08cc9f44605929e48cb498ea8debdd",
+      "url": "/collections/Rounds.js?9a6c60e23a08cc9f44605929e48cb498ea8debdd",
       "size": 345,
       "hash": "9a6c60e23a08cc9f44605929e48cb498ea8debdd"
+    },
+    {
+      "path": "app/collections/Teams.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/collections/Teams.js?2331c73ac79bea9f44302abf3eb72de5a1ac7cba",
+      "size": 60,
+      "hash": "2331c73ac79bea9f44302abf3eb72de5a1ac7cba"
     },
     {
       "path": "8ac585a3bafa8f259f2c4cb7031447c4c74bd01c.css",

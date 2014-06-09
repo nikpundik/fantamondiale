@@ -280,16 +280,28 @@
       "path": "packages/global-imports.js"
     },
     {
-      "path": "app/models/Bets.js"
+      "path": "app/collections/Bets.js"
     },
     {
-      "path": "app/models/Messages.js"
+      "path": "app/collections/Messages.js"
     },
     {
-      "path": "app/models/Rounds.js"
+      "path": "app/collections/Rounds.js"
+    },
+    {
+      "path": "app/collections/Teams.js"
+    },
+    {
+      "path": "app/server/methods.js"
+    },
+    {
+      "path": "app/server/publications.js"
     },
     {
       "path": "app/server/server.js"
+    },
+    {
+      "path": "app/server/users.js"
     }
   ]
 }

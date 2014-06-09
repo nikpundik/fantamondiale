@@ -67,7 +67,12 @@ Template.__define__("round", (function() {
 Template.__define__("game", (function() {
   var self = this;
   var template = this;
-  return HTML.LI("\n    ", HTML.H3(function() {
+  return HTML.LI("\n    ", UI.If(function() {
+    return Spacebars.call(self.lookup("isAdmin"));
+  }, UI.block(function() {
+    var self = this;
+    return "\n    admin\n    ";
+  })), "\n    ", HTML.H3(function() {
     return Spacebars.mustache(self.lookup("team1_title"));
   }, " ", HTML.SPAN({
     "class": "team-score"
@@ -86,7 +91,7 @@ Template.__define__("game", (function() {
     game: function() {
       return Spacebars.mustache(self.lookup("_id"));
     }
-  }, HTML.Raw('\n      <input class="team-1"> \n      <input class="team-2"> \n      <button bonus="false">BET</button>\n      <button bonus="true">BONUS</button>\n    ')), "\n    ", HTML.UL({
+  }, HTML.Raw('\n      <input class="team-1" type="number" min="0" max="20"> \n      <input class="team-2" type="number" min="0" max="20"> \n      <button bonus="false">BET</button>\n      <button bonus="true">BONUS</button>\n    ')), "\n    ", HTML.UL({
     "class": "bets"
   }, "\n      ", UI.Each(function() {
     return Spacebars.dataMustache(self.lookup("bets"), self.lookup("_id"));
