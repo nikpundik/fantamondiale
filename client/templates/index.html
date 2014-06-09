@@ -7,6 +7,7 @@
   <div class="container main">
     {{> header}}
     {{> time}}
+    {{> winner}}
     <div class="row">
       <div class="col-sm-9">{{> rounds}}</div>
       <div class="col-sm-3">
@@ -72,7 +73,7 @@
 
 <template name="bet">
   <li>
-  <b>{{username}}</b> {{team1}} {{team2}} 
+  <b>{{username}}</b> {{team1}} {{team2}}
   {{#if bonus}}
     <p>BONUS</p>
   {{/if}}
@@ -84,7 +85,7 @@
     <h2>Classifica</h2>
     <ul class="users-table">
       {{#each users}}
-      <li>{{points}} - {{username}}</li>
+      <li>{{points}} - {{username}} ({{winner_name}})</li>
       {{/each}}
     </ul>
   </div>
@@ -104,6 +105,19 @@
       <button>SEND</button>
     </form>
   </div>
+</template>
+
+<template name="winner">
+  <h2>Vincitore</h2>
+  <form action="">
+    <select name="winner" id="winner">
+    {{#each teams}}
+        <option value="{{_id}}">{{title}}</option> 
+      {{/each}}
+    </select>
+    <button>scegli</button>
+  </form>
+  
 </template>
 
 <template name="rules">

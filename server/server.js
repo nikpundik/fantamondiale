@@ -28,7 +28,7 @@ Meteor.startup(function () {
         Meteor.call("teams", function(error, teams) {
             for (var i = 0; i < teams.length; i++) {
                 var team=teams[i];
-
+                Teams.insert(team);
             };
         });
 

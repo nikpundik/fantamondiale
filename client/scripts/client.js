@@ -11,6 +11,7 @@ Accounts.ui.config({
 });
 
 Meteor.subscribe("round");
+Meteor.subscribe("teams");
 Meteor.subscribe("bets");
 Meteor.subscribe("users");
 Meteor.subscribe("messages");
@@ -42,12 +43,30 @@ Template.game.bets = function (game) {
 };
 
 Template.table.users = function() {
-	return Meteor.users.find({}, {sort: ["points", "asc"]});
+	return Meteor.users.find({}, {sort: ["points", "desc"]});
 };
 
 Template.chat.messages = function() {
 	return Messages.find({}, {sort: {time: 1}});
 };
+
+Template.winner.teams = function() {
+	return Teams.find();
+};
+
+Template.winner.events({
+  	"click button": function (event) {
+		event.preventDefault();
+
+		var form = $(event.currentTarget).parent("form");
+		var winner = form.find("select").val();
+		if (Meteor.userId()) {
+			Meteor.call("winner", winner);
+		} else {
+			alert("Login");
+		}
+  	}
+});
 
 Template.chat.events({
 	"click button": function(event) {
@@ -59,7 +78,7 @@ Template.chat.events({
 			input.val("");
 			Meteor.call("chat", message);
 		} else {
-			alert("Login baby");
+			alert("Login");
 		}
 	}
 });

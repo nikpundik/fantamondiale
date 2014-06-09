@@ -20,30 +20,29 @@ Meteor.methods({
         this.unblock();
         var result = Meteor.http.call("GET", "http://footballdb.herokuapp.com/api/v1/event/" + eventKey + "/teams");
         var json = JSON.parse(result.content);
-        return json.rounds;
+        return json.teams;
     },
 
     bet: function (round, game, team1, team2, bonus) {
-        if (Bets.bonusBet() && bonus) {
+        
+        if (Bets.bonusBet(Meteor.userId()) && bonus) {
 
         } else {
-            var user = Meteor.user();
             var time = new Date();
             var roundDate = Rounds.getDay(round);
             roundDate.setHours(18,0,0,0);
             if (time < roundDate) {
-                var bets = Bets.remove({game_id: game, user_id: user._id});
-                Bets.insert({
-                    round_id: round,
-                    game_id: game,
-                    team1: team1,
-                    team2: team2,
-                    user_id: user._id, 
-                    bonus: bonus,
-                    username: user.username
-                });
+                var bets = Bets.remove({game_id: game, user_id: Meteor.userId()});
+                Bets.bet(round, game, team1, team2, bonus, Meteor.userId());
             };
         }
+
+    },
+
+    winner: function (winner) {
+        var team = Teams.findOne({_id: winner});
+        Meteor.users.update({_id: Meteor.userId()}, {$set: {"winner_id": winner, "winner_name": team["title"]}});
+        console.log(Meteor.users.find({_id: Meteor.userId()}).fetch());
     },
 
     getServerTime: function () {
@@ -81,6 +80,7 @@ Meteor.methods({
                 var game = round["games"][j];
                 var score1 = parseInt(game["score1"]);
                 var score2 = parseInt(game["score2"]);
+                Meteor.call("setDefaults", round["_id"], game["_id"]);
                 var bets = Bets.find({game_id: game["_id"]}).fetch();
                 for (var k = 0; k < bets.length; k++) {
                     var bet = bets[k];
@@ -109,6 +109,17 @@ Meteor.methods({
             Meteor.users.update({_id: userId}, {$set: {points: usersPoints[userId]}});
         }
 
+    },
+
+    setDefaults: function (roundId, gameId) {
+        var users = Meteor.users.find().fetch();
+        for (var k = 0; k < users.length; k++) {
+            var user = users[k];
+            var bet = Bets.findOne({game_id: gameId, user_id: user["_id"]});
+            if (bet === undefined) {
+                Bets.bet(roundId, gameId, 0, 0, false, user["_id"]);
+            };
+        }
     }
 
 });
