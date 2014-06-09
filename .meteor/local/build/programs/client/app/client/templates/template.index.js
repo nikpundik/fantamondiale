@@ -3,7 +3,7 @@ UI.body.contentParts.push(UI.Component.extend({render: (function() {
   var self = this;
   return HTML.DIV({
     "class": "container main"
-  }, "\n    ", Spacebars.include(self.lookupTemplate("header")), "\n    ", Spacebars.include(self.lookupTemplate("time")), "\n    ", HTML.DIV({
+  }, "\n    ", Spacebars.include(self.lookupTemplate("header")), "\n    ", Spacebars.include(self.lookupTemplate("time")), "\n    ", Spacebars.include(self.lookupTemplate("winner")), "\n    ", Spacebars.include(self.lookupTemplate("admin")), "\n    ", HTML.DIV({
     "class": "row"
   }, "\n      ", HTML.DIV({
     "class": "col-sm-9"
@@ -26,6 +26,19 @@ Template.__define__("header", (function() {
     var self = this;
     return Spacebars.include(self.lookupTemplate("loginButtons"));
   }))), HTML.Raw("\n    <h1>FantaEURE - World Cup 2014 Brazil</h1>\n  "));
+}));
+
+Template.__define__("admin", (function() {
+  var self = this;
+  var template = this;
+  return UI.If(function() {
+    return Spacebars.call(self.lookup("isAdmin"));
+  }, UI.block(function() {
+    var self = this;
+    return [ "\n    ", HTML.BUTTON({
+      "class": "update"
+    }, "AGGIORNA"), "\n  " ];
+  }));
 }));
 
 Template.__define__("time", (function() {
@@ -71,7 +84,21 @@ Template.__define__("game", (function() {
     return Spacebars.call(self.lookup("isAdmin"));
   }, UI.block(function() {
     var self = this;
-    return "\n    admin\n    ";
+    return [ "\n    ", HTML.FORM({
+      round: function() {
+        return Spacebars.mustache(Spacebars.dot(self.lookup(".."), "_id"));
+      },
+      game: function() {
+        return Spacebars.mustache(self.lookup("_id"));
+      },
+      "class": "result-form"
+    }, "\n      ", HTML.INPUT({
+      type: "text",
+      "class": "team-1-result"
+    }), "\n      ", HTML.INPUT({
+      type: "text",
+      "class": "team-2-result"
+    }), "\n      ", HTML.BUTTON("RISULTATO"), "\n    "), "\n    " ];
   })), "\n    ", HTML.H3(function() {
     return Spacebars.mustache(self.lookup("team1_title"));
   }, " ", HTML.SPAN({
@@ -90,7 +117,8 @@ Template.__define__("game", (function() {
     },
     game: function() {
       return Spacebars.mustache(self.lookup("_id"));
-    }
+    },
+    "class": "bet-form"
   }, HTML.Raw('\n      <input class="team-1" type="number" min="0" max="20"> \n      <input class="team-2" type="number" min="0" max="20"> \n      <button bonus="false">BET</button>\n      <button bonus="true">BONUS</button>\n    ')), "\n    ", HTML.UL({
     "class": "bets"
   }, "\n      ", UI.Each(function() {
@@ -110,7 +138,7 @@ Template.__define__("bet", (function() {
     return Spacebars.mustache(self.lookup("team1"));
   }, " ", function() {
     return Spacebars.mustache(self.lookup("team2"));
-  }, " \n  ", UI.If(function() {
+  }, "\n  ", UI.If(function() {
     return Spacebars.call(self.lookup("bonus"));
   }, UI.block(function() {
     var self = this;
@@ -133,7 +161,9 @@ Template.__define__("table", (function() {
       return Spacebars.mustache(self.lookup("points"));
     }, " - ", function() {
       return Spacebars.mustache(self.lookup("username"));
-    }), "\n      " ];
+    }, " (", function() {
+      return Spacebars.mustache(self.lookup("winner_name"));
+    }, ")"), "\n      " ];
   })), "\n    "), "\n  ");
 }));
 
@@ -154,6 +184,28 @@ Template.__define__("chat", (function() {
       return Spacebars.mustache(self.lookup("message"));
     }), " \n      " ];
   })), "\n    "), HTML.Raw('\n    <form action="">\n      <input type="text">\n      <button>SEND</button>\n    </form>\n  '));
+}));
+
+Template.__define__("winner", (function() {
+  var self = this;
+  var template = this;
+  return [ HTML.Raw("<h2>Vincitore</h2>\n  "), HTML.FORM({
+    action: ""
+  }, "\n    ", HTML.SELECT({
+    name: "winner",
+    id: "winner"
+  }, "\n    ", UI.Each(function() {
+    return Spacebars.call(self.lookup("teams"));
+  }, UI.block(function() {
+    var self = this;
+    return [ "\n        ", HTML.OPTION({
+      value: function() {
+        return Spacebars.mustache(self.lookup("_id"));
+      }
+    }, function() {
+      return Spacebars.mustache(self.lookup("title"));
+    }), " \n      " ];
+  })), "\n    "), HTML.Raw("\n    <button>scegli</button>\n  ")) ];
 }));
 
 Template.__define__("rules", (function() {

@@ -29,8 +29,10 @@ Meteor.methods({
 
         } else {
             var time = new Date();
+            var offset = time.getTimezoneOffset();
+            var hours = 16 - offset/60;
             var roundDate = Rounds.getDay(round);
-            roundDate.setHours(18,0,0,0);
+            roundDate.setHours(hours,0,0,0);
             if (time < roundDate) {
                 var bets = Bets.remove({game_id: game, user_id: Meteor.userId()});
                 Bets.bet(round, game, team1, team2, bonus, Meteor.userId());
@@ -39,10 +41,26 @@ Meteor.methods({
 
     },
 
+    setResult: function (gameId, score1, score2) {
+        
+       var round = Rounds.findOne({
+            games: {$elemMatch : {_id: gameId}}
+        });
+        for (var i = 0; i < round["games"].length; i++) {
+            var game = round["games"][i];
+            if (game["_id"] == gameId) {
+                var set = {};
+                set['games.'+i+'.score1'] = parseInt(score1);
+                set['games.'+i+'.score2'] = parseInt(score2);
+                Rounds.update({_id: round["_id"]}, {$set: set});
+            };
+        };
+
+    },
+
     winner: function (winner) {
         var team = Teams.findOne({_id: winner});
         Meteor.users.update({_id: Meteor.userId()}, {$set: {"winner_id": winner, "winner_name": team["title"]}});
-        console.log(Meteor.users.find({_id: Meteor.userId()}).fetch());
     },
 
     getServerTime: function () {
@@ -56,18 +74,7 @@ Meteor.methods({
     },
 
     gameResult: function(gameId, score1, score2) {
-        var round = Rounds.findOne({
-            games: {$elemMatch : {_id: gameId}}
-        });
-        for (var i = 0; i < round["games"].length; i++) {
-            var game = round["games"][i];
-            if (game["_id"] == gameId) {
-                var set = {};
-                set['games.'+i+'.score1'] = parseInt(score1);
-                set['games.'+i+'.score2'] = parseInt(score2);
-                Rounds.update({_id: round["_id"]}, {$set: set});
-            };
-        };
+        
     },
 
     update: function () {
@@ -120,6 +127,25 @@ Meteor.methods({
                 Bets.bet(roundId, gameId, 0, 0, false, user["_id"]);
             };
         }
+    },
+
+    makeAdmin: function (username) {
+        var admins = Meteor.users.find({admin: true}).count();
+        if ( admins==0 | Meteor.users.isAdmin() ) {
+            Meteor.users.update({username: username}, {$set: {admin: true}});
+        }
+    },
+
+    reset: function () {
+        if (Meteor.users.isAdmin()) {
+            //Rounds.remove({});
+            Bets.remove({});
+            Messages.remove({});
+            Teams.remove({});
+            Meteor.users.remove({});
+            Meteor.afterStartUp();
+        };
+        
     }
 
 });

@@ -189,17 +189,6 @@
       "hash": "f07593c89c711c06846048b168f5f96b86438f6d"
     },
     {
-      "path": "packages/insecure.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/insecure.js?3dc9d4a2dad55999b5b15a447d57f3d5fb66b290",
-      "sourceMap": "packages/insecure.js.map",
-      "sourceMapUrl": "/packages/3dc9d4a2dad55999b5b15a447d57f3d5fb66b290.map",
-      "size": 1357,
-      "hash": "b08ff2a4cb09a65ed72e539c331f1fedf34ba24d"
-    },
-    {
       "path": "packages/mongo-livedata.js",
       "where": "client",
       "type": "js",
@@ -565,36 +554,36 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/templates/template.index.js?fcf3ed03d8966a746791ecb67ea3ba35935287ca",
-      "size": 7631,
-      "hash": "fcf3ed03d8966a746791ecb67ea3ba35935287ca"
+      "url": "/client/templates/template.index.js?9461a720d09cf3f75a9edcbba4e8b02104d69416",
+      "size": 9311,
+      "hash": "9461a720d09cf3f75a9edcbba4e8b02104d69416"
     },
     {
       "path": "app/client/scripts/client.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/scripts/client.js?6bb4352b2c101588f8ec245c030f0f66dbfed5a1",
-      "size": 1679,
-      "hash": "6bb4352b2c101588f8ec245c030f0f66dbfed5a1"
+      "url": "/client/scripts/client.js?689e195e6bdf04aadf818478667118a47a5f959b",
+      "size": 2709,
+      "hash": "689e195e6bdf04aadf818478667118a47a5f959b"
     },
     {
       "path": "app/client/scripts/helpers.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/scripts/helpers.js?8eb155150101a28b870d04f0905797a526d8786a",
-      "size": 248,
-      "hash": "8eb155150101a28b870d04f0905797a526d8786a"
+      "url": "/client/scripts/helpers.js?355b9519daf534b6b4011a4e4050acf4fb000cf5",
+      "size": 137,
+      "hash": "355b9519daf534b6b4011a4e4050acf4fb000cf5"
     },
     {
       "path": "app/collections/Bets.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/collections/Bets.js?4fe6d6d2654a2dd3236c75127653de2fa89698d6",
-      "size": 253,
-      "hash": "4fe6d6d2654a2dd3236c75127653de2fa89698d6"
+      "url": "/collections/Bets.js?a94fffffbb0d4965618af917131f5ceb3d40044b",
+      "size": 542,
+      "hash": "a94fffffbb0d4965618af917131f5ceb3d40044b"
     },
     {
       "path": "app/collections/Messages.js",
@@ -622,6 +611,15 @@
       "url": "/collections/Teams.js?2331c73ac79bea9f44302abf3eb72de5a1ac7cba",
       "size": 60,
       "hash": "2331c73ac79bea9f44302abf3eb72de5a1ac7cba"
+    },
+    {
+      "path": "app/collections/Users.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/collections/Users.js?319f258aa08d06c650fb0fe2a87677364f4bb102",
+      "size": 121,
+      "hash": "319f258aa08d06c650fb0fe2a87677364f4bb102"
     },
     {
       "path": "8ac585a3bafa8f259f2c4cb7031447c4c74bd01c.css",

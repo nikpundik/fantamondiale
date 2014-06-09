@@ -21,26 +21,53 @@ Template.rounds.rounds = function () {
 };
 
 Template.game.events({
-  	"click button": function (event) {
+
+  	"click .bet-form button": function (event) {
 		event.preventDefault();
 
 		var bonus = $(event.currentTarget).attr("bonus");
 		var form = $(event.currentTarget).parent("form");
 		var round = form.attr("round");
 		var game = form.attr("game");
-		var team1 = form.find(".team-1").val();
-		var team2 = form.find(".team-2").val();
+		var team1 = parseInt(form.find(".team-1").val());
+		var team2 = parseInt(form.find(".team-2").val());
 		if (Meteor.userId()) {
 			Meteor.call("bet", round, game, team1, team2, bonus==="true");
 		} else {
-			alert("Login baby");
+			alert("Login");
+		}
+  	},
+
+  	"click .result-form button": function (event) {
+  		event.preventDefault();
+
+		var form = $(event.currentTarget).parent("form");
+		var round = form.attr("round");
+		var game = form.attr("game");
+		var team1 = form.find(".team-1-result").val();
+		var team2 = form.find(".team-2-result").val();
+		if (Meteor.users.isAdmin()) {
+			Meteor.call("setResult", game, team1, team2);
+		} else {
+			alert("Login");
 		}
   	}
+
 });
 
 Template.game.bets = function (game) {
 	return Bets.find({game_id: game});
 };
+
+Template.admin.events({
+	"click button.update": function() {
+		if (Meteor.users.isAdmin()) {
+			Meteor.call("update");
+		} else {
+			alert("Login");
+		}
+	}
+});
 
 Template.table.users = function() {
 	return Meteor.users.find({}, {sort: ["points", "desc"]});

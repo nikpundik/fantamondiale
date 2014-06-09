@@ -8,6 +8,7 @@
     {{> header}}
     {{> time}}
     {{> winner}}
+    {{> admin}}
     <div class="row">
       <div class="col-sm-9">{{> rounds}}</div>
       <div class="col-sm-3">
@@ -25,6 +26,12 @@
     <div id="login">{{> loginButtons align="left"}}</div>
     <h1>FantaEURE - World Cup 2014 Brazil</h1>
   </header>
+</template>
+
+<template name="admin">
+  {{#if isAdmin}}
+    <button class="update">AGGIORNA</button>
+  {{/if}}
 </template>
 
 <template name="time">
@@ -53,10 +60,14 @@
 <template name="game">
 	<li>
     {{#if isAdmin}}
-    admin
+    <form round="{{../_id}}" game="{{_id}}" class="result-form">
+      <input type="text" class="team-1-result">
+      <input type="text" class="team-2-result">
+      <button>RISULTATO</button>
+    </form>
     {{/if}}
     <h3>{{team1_title}} <span class="team-score">{{score1}}</span> <span class="team-score">{{score2}}</span> {{team2_title}}</h3>
-    <form round="{{../_id}}" game="{{_id}}">
+    <form round="{{../_id}}" game="{{_id}}" class="bet-form">
       <input class="team-1" type="number" min=0 max=20> 
       <input class="team-2" type="number" min=0 max=20> 
       <button bonus="false">BET</button>

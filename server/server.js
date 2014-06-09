@@ -1,14 +1,14 @@
 Meteor.startup(function () {
+    Meteor.afterStartUp();
+});
 
-	//Rounds.remove({});
-    //Bets.remove({});
-    //Meteor.users.remove({});
+Meteor.afterStartUp = function() {
 
-	if(Rounds.find().count() === 0) {
+    if(Rounds.find().count() === 0) {
 
-	    Meteor.call("rounds", function(error, rounds) {
-        	for (var i = 0; i < rounds.length; i++) {
-        		Meteor.call("round", rounds[i]['pos'], function(error, round) {
+        Meteor.call("rounds", function(error, rounds) {
+            for (var i = 0; i < rounds.length; i++) {
+                Meteor.call("round", rounds[i]['pos'], function(error, round) {
                     for (var j = 0; j < round["games"].length; j++) {
                         round["games"][j]["_id"] = "game_id_" + i + "_" + j;
                     };
@@ -17,11 +17,11 @@ Meteor.startup(function () {
                         rounds[i]["start_at"] = "2015/01/01";
                     };
                     Rounds.insert(rounds[i]);
-        		});
-        	};
-    	});
+                });
+            };
+        });
 
-	}
+    }
 
     if (Teams.find().count() === 0) {
 
@@ -29,9 +29,9 @@ Meteor.startup(function () {
             for (var i = 0; i < teams.length; i++) {
                 var team=teams[i];
                 Teams.insert(team);
-            };
+            }; 
         });
 
     };
 
-});
+}
