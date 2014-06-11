@@ -14,15 +14,20 @@ Rounds.getStartDate = function(round) {
 
 Rounds.isStarted = function(round) {
 	if (Meteor.isServer) {
-		//var time = new Date(2014, 5, 14, 19);
+		//var time = new Date(2014, 5, 13, 19);
+		var time = new Date();  
+		//time = new Date(2014, 5, 13, 16, 01); 
+	} else {
+		//not reliable!
+		//get time from session, but updated with higher delay
 		var time = new Date();
-        var offset = time.getTimezoneOffset();
-        var hours = 16 - offset/60;
-        var roundDate = Rounds.getStartDate(round);
-        roundDate.setHours(hours,0,0,0);
-        return roundDate < time;       
+		//time = new Date(2014, 5, 13, 18, 01);
 	}
-	return false;
+	var offset = time.getTimezoneOffset();
+    var hours = 16 - offset/60;
+    var roundDate = Rounds.getStartDate(round);
+    roundDate.setHours(hours,0,0,0);
+    return roundDate < time; 
 }
 
 Rounds.startedRoundIds = function() {
@@ -36,6 +41,5 @@ Rounds.startedRoundIds = function() {
 			console.log("Started: "+ round["title"]);
 		}
 	}
-	//console.log("Started rounds: " + startedRounds);
 	return startedRounds;
 }

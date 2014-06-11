@@ -25,6 +25,12 @@ Meteor.methods({
 
     bet: function (round, game, team1, team2, bonus) {
         
+        if (isNaN(team1)) {
+            team1 = 0;
+        }
+        if (isNaN(team2)) {
+            team2 = 0;
+        };
         if (Bets.bonusBet(Meteor.userId()) && bonus) {
 
         } else {
@@ -57,7 +63,11 @@ Meteor.methods({
 
     winner: function (winner) {
         var team = Teams.findOne({_id: winner});
-        Meteor.users.update({_id: Meteor.userId()}, {$set: {"winner_id": winner, "winner_name": team["title"]}});
+        var winnerEnd = new Date(2014, 5, 12, 16, 0, 0);
+        var now = new Date();
+        if (now < winnerEnd) {
+            Meteor.users.update({_id: Meteor.userId()}, {$set: {"winner_id": winner, "winner_name": team["title"]}});
+        };
     },
 
     getServerTime: function () {
