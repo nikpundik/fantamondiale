@@ -12,7 +12,8 @@ Accounts.ui.config({
 
 Meteor.subscribe("round");
 Meteor.subscribe("teams");
-Meteor.subscribe("bets");
+Meteor.subscribe("visibleBets");
+Meteor.subscribe("hiddenBets");
 Meteor.subscribe("users");
 Meteor.subscribe("messages");
 
@@ -34,7 +35,7 @@ Template.game.events({
 		if (Meteor.userId()) {
 			Meteor.call("bet", round, game, team1, team2, bonus==="true");
 		} else {
-			alert("Login baby");
+			alert("Login");
 		}
   	},
 
@@ -70,7 +71,7 @@ Template.admin.events({
 });
 
 Template.table.users = function() {
-	return Meteor.users.find({}, {sort: ["points", "desc"]});
+	return Meteor.users.find({}, {sort: {points: -1}});
 };
 
 Template.chat.messages = function() {

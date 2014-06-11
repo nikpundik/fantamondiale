@@ -176,66 +176,6 @@
       "sourceMapRoot": "packages"
     },
     {
-      "path": "packages/service-configuration.js",
-      "sourceMap": "packages/service-configuration.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/oauth.js",
-      "sourceMap": "packages/oauth.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/accounts-oauth.js",
-      "sourceMap": "packages/accounts-oauth.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/oauth2.js",
-      "sourceMap": "packages/oauth2.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/http.js",
-      "sourceMap": "packages/http.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/facebook.js",
-      "sourceMap": "packages/facebook.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/accounts-facebook.js",
-      "sourceMap": "packages/accounts-facebook.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/oauth1.js",
-      "sourceMap": "packages/oauth1.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/twitter.js",
-      "sourceMap": "packages/twitter.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/accounts-twitter.js",
-      "sourceMap": "packages/accounts-twitter.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/google.js",
-      "sourceMap": "packages/google.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
-      "path": "packages/accounts-google.js",
-      "sourceMap": "packages/accounts-google.js.map",
-      "sourceMapRoot": "packages"
-    },
-    {
       "path": "packages/bootstrap-3.js",
       "sourceMap": "packages/bootstrap-3.js.map",
       "sourceMapRoot": "packages"
@@ -259,6 +199,11 @@
     {
       "path": "packages/accounts-password.js",
       "sourceMap": "packages/accounts-password.js.map",
+      "sourceMapRoot": "packages"
+    },
+    {
+      "path": "packages/http.js",
+      "sourceMap": "packages/http.js.map",
       "sourceMapRoot": "packages"
     },
     {
@@ -300,6 +245,11 @@
     },
     {
       "path": "app/server/users.js"
+    },
+    {
+      "path": "packages/service-configuration.js",
+      "sourceMap": "packages/service-configuration.js.map",
+      "sourceMapRoot": "packages"
     }
   ]
 }

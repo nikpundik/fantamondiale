@@ -1,36 +1,48 @@
 <head>
-  <title>fantaeure</title>
+  <title>FantaEure 2014</title>
   <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <div class="container main">
-    {{> header}}
-    {{> time}}
-    {{> winner}}
+  <div class="header">
+    <div class="container">{{> header}}</div>
+	</div>
+	<div class="headerwinner">
+    <div class="container">{{> winner}}</div>
+	</div>
+	<div class="container main">
+	{{> time}}
     {{> admin}}
     <div class="row">
-      <div class="col-sm-9">{{> rounds}}</div>
-      <div class="col-sm-3">
+      <div class="col-sm-8">{{> rounds}}</div>
+      <div class="col-sm-4">
         {{> table}}
         {{> chat}}
       </div>
     </div>
-    <hr>
     {{> rules}}
   </div>
+   {{> footer}}
 </body>
 
 <template name="header">
+<div class="page-header">
   <header>
-    <div id="login">{{> loginButtons align="left"}}</div>
-    <h1>FantaEURE - World Cup 2014 Brazil</h1>
+    <div class="btn btn-info" id="login">{{> loginButtons align="left"}}</div>
+    <h1>FantaEURE 2014</h1>
   </header>
+  </div>
+</template>
+
+<template name="footer">
+<footer>
+<div class="container"><p>Credits: Nik, Dave</p></div>
+</footer>
 </template>
 
 <template name="admin">
   {{#if isAdmin}}
-    <button class="update">AGGIORNA</button>
+    <button class="update btn btn-danger">AGGIORNA</button>
   {{/if}}
 </template>
 
@@ -47,7 +59,7 @@
 </template>
 
 <template name="round">
-	<li>
+	<li class="days">
     <h2>{{end_at}} - {{title}}</h2>
 		<ul>
 		  {{#each games}}
@@ -60,18 +72,18 @@
 <template name="game">
 	<li>
     {{#if isAdmin}}
-    <form round="{{../_id}}" game="{{_id}}" class="result-form">
-      <input type="text" class="team-1-result">
-      <input type="text" class="team-2-result">
-      <button>RISULTATO</button>
+    <form style="margin-top:40px;" round="{{../_id}}" game="{{_id}}" class="result-form">
+      <input type="text" class="team-1-result form-control">
+      <input type="text" class="team-2-result form-control">
+      <button class="btn btn-danger">RISULTATO</button>
     </form>
     {{/if}}
-    <h3>{{team1_title}} <span class="team-score">{{score1}}</span> <span class="team-score">{{score2}}</span> {{team2_title}}</h3>
+    <h3>{{team1_title}} <span class="team-score">{{score1}}</span> - <span class="team-score">{{score2}}</span> {{team2_title}}</h3>
     <form round="{{../_id}}" game="{{_id}}" class="bet-form">
-      <input class="team-1" type="number" min=0 max=20> 
-      <input class="team-2" type="number" min=0 max=20> 
-      <button bonus="false">BET</button>
-      <button bonus="true">BONUS</button>
+      <input class="team-1 form-control" placeholder="0" type="number" min=0 max=20>
+      <input class="team-2 form-control" placeholder="0" type="number" min=0 max=20> 
+      <button class="btn btn-primary" bonus="false">BET</button>
+      <button class="btn btn-warning" bonus="true">BONUS</button>
     </form>
     <ul class="bets">
       {{#each bets _id}}
@@ -84,9 +96,9 @@
 
 <template name="bet">
   <li>
-  <b>{{username}}</b> {{team1}} {{team2}}
+  <b>{{username}}</b> {{team1}} - {{team2}}
   {{#if bonus}}
-    <p>BONUS</p>
+    <span style="color:#F9C000"><b>BONUS</b></span>
   {{/if}}
   </li>
 </template>
@@ -94,11 +106,13 @@
 <template name="table">
   <div class="table-div">
     <h2>Classifica</h2>
-    <ul class="users-table">
+	 <table class="users-table table table-condensed">
+	 <thead><tr><th>Username</th><th style="text-align:center">Punti</th><th>Winner</th></tr></thead>
       {{#each users}}
-      <li>{{points}} - {{username}} ({{winner_name}})</li>
+      <tr><td style="padding-left:5px;">{{username}}</td><td style="text-align:center"><b>{{points}}</b></td><td>{{winner_name}}</td></tr>
       {{/each}}
-    </ul>
+	</table>
+	
   </div>
 </template>
 
@@ -107,31 +121,35 @@
     <h2>Chat</h2>
     <div class="messages">
       {{#each messages}}
-        <small>{{time}}</small>
-        <p><b>{{username}}</b> {{message}}</p> 
+        <p><b>{{username}}:</b> {{message}}</p> 
       {{/each}}
     </div>
     <form action="">
-      <input type="text">
-      <button>SEND</button>
+      <input class="form-control" type="text">
+      <button class="btn bt-default">INVIA</button>
     </form>
   </div>
 </template>
 
 <template name="winner">
+  <div class="winner">
   <h2>Vincitore</h2>
   <form action="">
-    <select name="winner" id="winner">
+    <select class="form-control" style="width:200px;" name="winner" id="winner">
     {{#each teams}}
         <option value="{{_id}}">{{title}}</option> 
       {{/each}}
     </select>
-    <button>scegli</button>
+    <button class="btn btn-primary">Scegli</button>
+	<p>Pronostica la squadra vincitrice dei Mondiali 2014 entro e non oltre le 18.00 di Giovedì 12 giugno 2014.</p>
   </form>
+  </div>
   
 </template>
 
 <template name="rules">
+ <h2>PREMI:</h2>
+
   <p>Le regole sono le stesse di 2 anni fa, ossia l'obiettivo è quello di indovinare i risultati esatti delle partite in programma dal 12 giugno al 13 luglio.</p>
   <p>Quota di iscrizione 5 euro. Il totale verrà poi suddiviso come segue:</p>
 

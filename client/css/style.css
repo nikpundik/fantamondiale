@@ -91,3 +91,137 @@ input
 	padding: 5px;
 }
 */
+
+@font-face {
+    font-family: 'sambaregular';
+    src: url('/samba-webfont.eot');
+    src: url('/samba-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/samba-webfont.woff') format('woff'),
+         url('/samba-webfont.ttf') format('truetype'),
+         url('/samba-webfont.svg#sambaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+*{
+	padding:0;
+	margin:0;
+}
+
+ul{
+	list-style-type:none;
+}
+
+select.form-control, input.form-control{
+	width:100px;
+	float:left;
+	margin-right:5px;
+}
+
+.bets li{
+	float:left;
+	padding:3px 10px;
+	color:#fff;
+	background-color:green;
+	margin:5px 3px;
+	-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+h1, h2, h4{
+	font-family: 'sambaregular';
+}
+
+.days h2{
+	color:#3276B1;
+}
+
+.accounts-dialog input{
+	width:auto;
+	
+}
+
+.accounts-dialog{
+	width:330px;
+	text-align:right;
+}
+
+li.days{
+	padding-bottom:20px;
+	border-bottom:1px solid #3276B1;
+}
+
+.days{
+	margin-bottom:80px;
+}
+
+.winner{
+	margin-bottom:80px;
+}
+
+.header{
+	background-color:#F9C000;
+	border-bottom:4px solid #000;
+	color:#fff;
+}
+
+h1{
+	text-align:center;
+	font-size:90px;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.messages input.form-control{
+	width:250px;
+}
+
+#login a#login-name-link{
+	color:#fff;
+}
+
+
+footer{
+	background:black;
+	color:#fff;
+	line-height:30px;
+}
+
+footer p{
+	margin-bottom:0px;
+}
+
+#login  a#login-sign-in-link{
+	color:#fff;
+}
+
+#login a{
+	color:#999;
+	text-decoration:none;
+}
+
+.page-header{
+	border:0px;
+}
+
+.headerwinner{
+	background-color:#007E14;
+	border-bottom:4px solid #000;
+	color:#fff;
+	margin-bottom:40px;
+	padding-top:30px;
+}
+
+.users-table tr:nth-child(2){
+	background-color:#49b337;
+	color:#fff;
+}
+
+.users-table tr:nth-child(3){
+background-color:#8fd784;
+}
+
+.users-table tr:nth-child(4){
+background-color:#b9ffae;
+}

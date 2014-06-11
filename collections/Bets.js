@@ -10,7 +10,8 @@ Bets.bet = function(round, game, team1, team2, bonus, userId) {
             team2: team2,
             user_id: userId, 
             bonus: bonus,
-            username: user.username
+            username: user.username,
+            created: new Date()
         });
 	};
 }

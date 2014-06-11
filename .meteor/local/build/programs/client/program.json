@@ -288,26 +288,15 @@
       "hash": "91303f8d57b43c9a85a11b6d0ac58a6af75efb00"
     },
     {
-      "path": "packages/oauth.js",
+      "path": "packages/bootstrap-3.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/oauth.js?2fe8d2a23a49813c9224d2bc06601401550159c8",
-      "sourceMap": "packages/oauth.js.map",
-      "sourceMapUrl": "/packages/2fe8d2a23a49813c9224d2bc06601401550159c8.map",
-      "size": 11746,
-      "hash": "a18bac979f3dc0e4ab5c7a5a635aee2fe87d60e7"
-    },
-    {
-      "path": "packages/accounts-oauth.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/accounts-oauth.js?ff632d1b631119b8efc0375f7a0e9178e5bb5c7c",
-      "sourceMap": "packages/accounts-oauth.js.map",
-      "sourceMapUrl": "/packages/ff632d1b631119b8efc0375f7a0e9178e5bb5c7c.map",
-      "size": 7943,
-      "hash": "768bbf079e4dac5d78e6e04f016e4a77d626baed"
+      "url": "/packages/bootstrap-3.js?e08aea1907eb85d8bd511a940d34a8e43162103a",
+      "sourceMap": "packages/bootstrap-3.js.map",
+      "sourceMapUrl": "/packages/e08aea1907eb85d8bd511a940d34a8e43162103a.map",
+      "size": 247156,
+      "hash": "55cfff29bb2f5f4a24da3c52880c0df4073f431d"
     },
     {
       "path": "packages/service-configuration.js",
@@ -321,17 +310,6 @@
       "hash": "b358ce38109add6c1b05926dfc0b42e58edaf5db"
     },
     {
-      "path": "packages/oauth2.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/oauth2.js?5fa58098b89a1467037a0b8eb4b17ad33b72cf07",
-      "sourceMap": "packages/oauth2.js.map",
-      "sourceMapUrl": "/packages/5fa58098b89a1467037a0b8eb4b17ad33b72cf07.map",
-      "size": 1503,
-      "hash": "c3f24cc9266091a2593c75054764551f2a783c62"
-    },
-    {
       "path": "packages/templating.js",
       "where": "client",
       "type": "js",
@@ -341,105 +319,6 @@
       "sourceMapUrl": "/packages/d7b36fa11d2e2cf682c11bdb54a636651cfcee98.map",
       "size": 4252,
       "hash": "b9c547078c496c39e62fd2714ab5f2694f684336"
-    },
-    {
-      "path": "packages/facebook.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/facebook.js?068f0abbc3ad29e4be87f308e95f50540a42171d",
-      "sourceMap": "packages/facebook.js.map",
-      "sourceMapUrl": "/packages/068f0abbc3ad29e4be87f308e95f50540a42171d.map",
-      "size": 11221,
-      "hash": "547ea8c671e35fdf9ae29a74a0b8f9e318f1d76e"
-    },
-    {
-      "path": "packages/accounts-facebook.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/accounts-facebook.js?7517153d7a516e019861cf634634c38b55041e4c",
-      "sourceMap": "packages/accounts-facebook.js.map",
-      "sourceMapUrl": "/packages/7517153d7a516e019861cf634634c38b55041e4c.map",
-      "size": 5169,
-      "hash": "beaa895f5908720c93a3f0afa6eaf7619e1e9d2c"
-    },
-    {
-      "path": "packages/http.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/http.js?fc611fc0c26ec8576576e7087bf723c1e6ddacec",
-      "sourceMap": "packages/http.js.map",
-      "sourceMapUrl": "/packages/fc611fc0c26ec8576576e7087bf723c1e6ddacec.map",
-      "size": 26251,
-      "hash": "cc163bae0491771e7be0861ac2fcb0a3cc2d3ad6"
-    },
-    {
-      "path": "packages/oauth1.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/oauth1.js?e16be7aa83611506e7ceebd6669c8937aa2e6006",
-      "sourceMap": "packages/oauth1.js.map",
-      "sourceMapUrl": "/packages/e16be7aa83611506e7ceebd6669c8937aa2e6006.map",
-      "size": 1539,
-      "hash": "25bd9b90beb6b2e8b332927eb9e60bc97f130add"
-    },
-    {
-      "path": "packages/twitter.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/twitter.js?b6a3adbe3a7f951287bf26cdb2a1c3a7d6b51273",
-      "sourceMap": "packages/twitter.js.map",
-      "sourceMapUrl": "/packages/b6a3adbe3a7f951287bf26cdb2a1c3a7d6b51273.map",
-      "size": 9888,
-      "hash": "8e10b7a9700ef90b445cf47852d2e00fd824805f"
-    },
-    {
-      "path": "packages/accounts-twitter.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/accounts-twitter.js?d78ed1028367b0749d6e27d6caf906532d07c9cd",
-      "sourceMap": "packages/accounts-twitter.js.map",
-      "sourceMapUrl": "/packages/d78ed1028367b0749d6e27d6caf906532d07c9cd.map",
-      "size": 4977,
-      "hash": "924d89f63d21be888523e11ee029d738626df661"
-    },
-    {
-      "path": "packages/google.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/google.js?23c8e4cf603777abd8e1475a4b5a324d9bba08b2",
-      "sourceMap": "packages/google.js.map",
-      "sourceMapUrl": "/packages/23c8e4cf603777abd8e1475a4b5a324d9bba08b2.map",
-      "size": 15491,
-      "hash": "33df4cc5ffe0c6551166aac56ec9295195932e71"
-    },
-    {
-      "path": "packages/accounts-google.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/accounts-google.js?61df255a50c84c2b6880f53cd2c6c270321a51ef",
-      "sourceMap": "packages/accounts-google.js.map",
-      "sourceMapUrl": "/packages/61df255a50c84c2b6880f53cd2c6c270321a51ef.map",
-      "size": 5663,
-      "hash": "aa1e9b8a13ae30ffce8b39677d24dce5955589ea"
-    },
-    {
-      "path": "packages/bootstrap-3.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/bootstrap-3.js?e08aea1907eb85d8bd511a940d34a8e43162103a",
-      "sourceMap": "packages/bootstrap-3.js.map",
-      "sourceMapUrl": "/packages/e08aea1907eb85d8bd511a940d34a8e43162103a.map",
-      "size": 247156,
-      "hash": "55cfff29bb2f5f4a24da3c52880c0df4073f431d"
     },
     {
       "path": "packages/reactive-dict.js",
@@ -519,6 +398,17 @@
       "hash": "0391c9c53d89e3314ef128f9fe4c0e50c31e8ca4"
     },
     {
+      "path": "packages/http.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/http.js?fc611fc0c26ec8576576e7087bf723c1e6ddacec",
+      "sourceMap": "packages/http.js.map",
+      "sourceMapUrl": "/packages/fc611fc0c26ec8576576e7087bf723c1e6ddacec.map",
+      "size": 26251,
+      "hash": "cc163bae0491771e7be0861ac2fcb0a3cc2d3ad6"
+    },
+    {
       "path": "packages/webapp.js",
       "where": "client",
       "type": "js",
@@ -545,27 +435,27 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/global-imports.js?439b620efb2b2a5226cec6ada62317ce6b4253c5",
-      "size": 623,
-      "hash": "439b620efb2b2a5226cec6ada62317ce6b4253c5"
+      "url": "/packages/global-imports.js?eb1f0a443811137f5125e5c917268a79ef5b3261",
+      "size": 649,
+      "hash": "eb1f0a443811137f5125e5c917268a79ef5b3261"
     },
     {
       "path": "app/client/templates/template.index.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/templates/template.index.js?9461a720d09cf3f75a9edcbba4e8b02104d69416",
-      "size": 9311,
-      "hash": "9461a720d09cf3f75a9edcbba4e8b02104d69416"
+      "url": "/client/templates/template.index.js?7ed0911fb83f5b514ea8e82cea64f8c1f736326c",
+      "size": 10554,
+      "hash": "7ed0911fb83f5b514ea8e82cea64f8c1f736326c"
     },
     {
       "path": "app/client/scripts/client.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/scripts/client.js?689e195e6bdf04aadf818478667118a47a5f959b",
-      "size": 2709,
-      "hash": "689e195e6bdf04aadf818478667118a47a5f959b"
+      "url": "/client/scripts/client.js?0636205e0c9c15a0b368e932630a689bf4708841",
+      "size": 2738,
+      "hash": "0636205e0c9c15a0b368e932630a689bf4708841"
     },
     {
       "path": "app/client/scripts/helpers.js",
@@ -581,9 +471,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/collections/Bets.js?a94fffffbb0d4965618af917131f5ceb3d40044b",
-      "size": 542,
-      "hash": "a94fffffbb0d4965618af917131f5ceb3d40044b"
+      "url": "/collections/Bets.js?5e056dba2554084bcfe103c94712f1f302365dca",
+      "size": 576,
+      "hash": "5e056dba2554084bcfe103c94712f1f302365dca"
     },
     {
       "path": "app/collections/Messages.js",
@@ -599,9 +489,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/collections/Rounds.js?9a6c60e23a08cc9f44605929e48cb498ea8debdd",
-      "size": 345,
-      "hash": "9a6c60e23a08cc9f44605929e48cb498ea8debdd"
+      "url": "/collections/Rounds.js?4bd9712af4d67801ab985d3801bc1e8e8e52bb4c",
+      "size": 1106,
+      "hash": "4bd9712af4d67801ab985d3801bc1e8e8e52bb4c"
     },
     {
       "path": "app/collections/Teams.js",
@@ -622,15 +512,15 @@
       "hash": "319f258aa08d06c650fb0fe2a87677364f4bb102"
     },
     {
-      "path": "8ac585a3bafa8f259f2c4cb7031447c4c74bd01c.css",
+      "path": "8c4c2428cf05b0ccdccdb82920a75b07cd18daa3.css",
       "where": "client",
       "type": "css",
       "cacheable": true,
-      "url": "/8ac585a3bafa8f259f2c4cb7031447c4c74bd01c.css",
-      "sourceMap": "8ac585a3bafa8f259f2c4cb7031447c4c74bd01c.css.map",
-      "sourceMapUrl": "/8ac585a3bafa8f259f2c4cb7031447c4c74bd01c.map",
-      "size": 135098,
-      "hash": "2d607d2cb78098215349c718f0ac5c4b55b00173"
+      "url": "/8c4c2428cf05b0ccdccdb82920a75b07cd18daa3.css",
+      "sourceMap": "8c4c2428cf05b0ccdccdb82920a75b07cd18daa3.css.map",
+      "sourceMapUrl": "/8c4c2428cf05b0ccdccdb82920a75b07cd18daa3.map",
+      "size": 134605,
+      "hash": "d95b02416ea7e78526382dc247181fe694863006"
     },
     {
       "path": "packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.eot",
@@ -669,19 +559,46 @@
       "hash": "22037a3455914e5662fa51a596677bdb329e2c5c"
     },
     {
-      "path": "app/bg.png",
+      "path": "app/samba-webfont.eot",
       "where": "client",
       "type": "asset",
       "cacheable": false,
-      "url": "/bg.png",
-      "size": 388,
-      "hash": "3b29286e49c4fd21cff1d70ed0e63edc955c2498"
+      "url": "/samba-webfont.eot",
+      "size": 18064,
+      "hash": "7e3a4c976e2acd6bc8451db6fad988e9011e8076"
+    },
+    {
+      "path": "app/samba-webfont.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/samba-webfont.svg",
+      "size": 44800,
+      "hash": "aef5639363be8bea5ddccc932105593be028b2f1"
+    },
+    {
+      "path": "app/samba-webfont.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/samba-webfont.ttf",
+      "size": 27732,
+      "hash": "0cd3bc27d6855317f782cbf893d5eb0eb78bbd97"
+    },
+    {
+      "path": "app/samba-webfont.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/samba-webfont.woff",
+      "size": 19832,
+      "hash": "6cb01acf3e649dc3135358c90533fded6bbb6e45"
     },
     {
       "path": "head.html",
       "where": "internal",
       "type": "head",
-      "hash": "fee6b53aec90785e4b278fdd8d496779cc365094"
+      "hash": "eb7dfc6c8263038a2e7bf3b27a829258f9acce0d"
     }
   ]
 }

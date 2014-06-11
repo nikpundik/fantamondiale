@@ -3,6 +3,7 @@
 $ = Package.jquery.$;
 jQuery = Package.jquery.jQuery;
 Accounts = Package['accounts-base'].Accounts;
+HTTP = Package.http.HTTP;
 Meteor = Package.meteor.Meteor;
 WebApp = Package.webapp.WebApp;
 Log = Package.logging.Log;

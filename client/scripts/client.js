@@ -12,7 +12,8 @@ Accounts.ui.config({
 
 Meteor.subscribe("round");
 Meteor.subscribe("teams");
-Meteor.subscribe("bets");
+Meteor.subscribe("visibleBets");
+Meteor.subscribe("hiddenBets");
 Meteor.subscribe("users");
 Meteor.subscribe("messages");
 
@@ -70,7 +71,7 @@ Template.admin.events({
 });
 
 Template.table.users = function() {
-	return Meteor.users.find({}, {sort: ["points", "desc"]});
+	return Meteor.users.find({}, {sort: {points: -1}});
 };
 
 Template.chat.messages = function() {

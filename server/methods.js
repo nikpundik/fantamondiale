@@ -28,12 +28,9 @@ Meteor.methods({
         if (Bets.bonusBet(Meteor.userId()) && bonus) {
 
         } else {
-            var time = new Date();
-            var offset = time.getTimezoneOffset();
-            var hours = 16 - offset/60;
-            var roundDate = Rounds.getDay(round);
-            roundDate.setHours(hours,0,0,0);
-            if (time < roundDate) {
+            var roundObject = Rounds.findOne({_id: round});
+            var isStarted = Rounds.isStarted(roundObject);
+            if (!isStarted) {
                 var bets = Bets.remove({game_id: game, user_id: Meteor.userId()});
                 Bets.bet(round, game, team1, team2, bonus, Meteor.userId());
             };
