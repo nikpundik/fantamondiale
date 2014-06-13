@@ -444,36 +444,36 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/templates/template.index.js?7ed0911fb83f5b514ea8e82cea64f8c1f736326c",
-      "size": 10554,
-      "hash": "7ed0911fb83f5b514ea8e82cea64f8c1f736326c"
+      "url": "/client/templates/template.index.js?0712d5e4b078810921cd480baa303c2281bbf4b6",
+      "size": 10350,
+      "hash": "0712d5e4b078810921cd480baa303c2281bbf4b6"
     },
     {
       "path": "app/client/scripts/client.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/scripts/client.js?0636205e0c9c15a0b368e932630a689bf4708841",
-      "size": 2738,
-      "hash": "0636205e0c9c15a0b368e932630a689bf4708841"
+      "url": "/client/scripts/client.js?ae026ed1c34e3618617aa0bac85d60567f9b72a4",
+      "size": 2767,
+      "hash": "ae026ed1c34e3618617aa0bac85d60567f9b72a4"
     },
     {
       "path": "app/client/scripts/helpers.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/scripts/helpers.js?355b9519daf534b6b4011a4e4050acf4fb000cf5",
-      "size": 137,
-      "hash": "355b9519daf534b6b4011a4e4050acf4fb000cf5"
+      "url": "/client/scripts/helpers.js?2d67dabca2798cde25765328058a5e65377af5cd",
+      "size": 281,
+      "hash": "2d67dabca2798cde25765328058a5e65377af5cd"
     },
     {
       "path": "app/collections/Bets.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/collections/Bets.js?5e056dba2554084bcfe103c94712f1f302365dca",
-      "size": 576,
-      "hash": "5e056dba2554084bcfe103c94712f1f302365dca"
+      "url": "/collections/Bets.js?25c3df80908958aade28c578e6f9a0056407dd12",
+      "size": 625,
+      "hash": "25c3df80908958aade28c578e6f9a0056407dd12"
     },
     {
       "path": "app/collections/Messages.js",
@@ -489,9 +489,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/collections/Rounds.js?4bd9712af4d67801ab985d3801bc1e8e8e52bb4c",
-      "size": 1106,
-      "hash": "4bd9712af4d67801ab985d3801bc1e8e8e52bb4c"
+      "url": "/collections/Rounds.js?5c0306480cbdf36c4e952363727dd2a23fb809a6",
+      "size": 1211,
+      "hash": "5c0306480cbdf36c4e952363727dd2a23fb809a6"
     },
     {
       "path": "app/collections/Teams.js",

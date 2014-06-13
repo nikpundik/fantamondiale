@@ -130,6 +130,11 @@ select.form-control, input.form-control{
 border-radius: 4px;
 }
 
+.bets li.bet-default-true
+{
+	background-color:#ccc;
+}
+
 h1, h2, h4{
 	font-family: 'sambaregular';
 }

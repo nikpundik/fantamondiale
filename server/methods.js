@@ -38,7 +38,7 @@ Meteor.methods({
             var isStarted = Rounds.isStarted(roundObject);
             if (!isStarted) {
                 var bets = Bets.remove({game_id: game, user_id: Meteor.userId()});
-                Bets.bet(round, game, team1, team2, bonus, Meteor.userId());
+                Bets.bet(round, game, team1, team2, bonus, Meteor.userId(), false);
             };
         }
 
@@ -131,7 +131,7 @@ Meteor.methods({
             var user = users[k];
             var bet = Bets.findOne({game_id: gameId, user_id: user["_id"]});
             if (bet === undefined) {
-                Bets.bet(roundId, gameId, 0, 0, false, user["_id"]);
+                Bets.bet(roundId, gameId, 0, 0, false, user["_id"], true);
             };
         }
     },

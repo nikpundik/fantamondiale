@@ -101,7 +101,7 @@
 </template>
 
 <template name="bet">
-  <li>
+  <li class="bet-default-{{defaultBet}}">
   <b>{{username}}</b> {{team1}} - {{team2}}
   {{#if bonus}}
     <span style="color:#F9C000"><b>BONUS</b></span>
@@ -140,6 +140,8 @@
 <template name="winner">
   <div class="winner">
   <h2>Vincitore</h2>
+  <h3>{{currentUser.winner_name}}</h3>
+  {{!--
   <form action="">
     <select class="form-control" style="width:200px;" name="winner" id="winner">
     {{#each teams}}
@@ -149,8 +151,8 @@
     <button class="btn btn-primary">Scegli</button>
 	<p>Pronostica la squadra vincitrice dei Mondiali 2014 entro e non oltre le 18.00 di Giovedì 12 giugno 2014.</p>
   </form>
+  --}}
   </div>
-  
 </template>
 
 <template name="rules">

@@ -84,11 +84,16 @@ Template.__define__("round", (function() {
   var template = this;
   return HTML.LI({
     "class": "days"
-  }, "\n    ", HTML.H2(function() {
+  }, "\n    \n    ", HTML.H2("\n      ", function() {
     return Spacebars.mustache(self.lookup("end_at"));
   }, " - ", function() {
     return Spacebars.mustache(self.lookup("title"));
-  }), "\n		", HTML.UL("\n		  ", UI.Each(function() {
+  }, "\n      ", UI.If(function() {
+    return Spacebars.dataMustache(self.lookup("isRoundStarted"), self.lookup("_id"));
+  }, UI.block(function() {
+    var self = this;
+    return [ " \n      ", HTML.SMALL("SCOMMESSE CHIUSE"), "\n      " ];
+  })), "\n    "), "\n		", HTML.UL("\n		  ", UI.Each(function() {
     return Spacebars.call(self.lookup("games"));
   }, UI.block(function() {
     var self = this;
@@ -154,7 +159,11 @@ Template.__define__("game", (function() {
 Template.__define__("bet", (function() {
   var self = this;
   var template = this;
-  return HTML.LI("\n  ", HTML.B(function() {
+  return HTML.LI({
+    "class": [ "bet-default-", function() {
+      return Spacebars.mustache(self.lookup("defaultBet"));
+    } ]
+  }, "\n  ", HTML.B(function() {
     return Spacebars.mustache(self.lookup("username"));
   }), " ", function() {
     return Spacebars.mustache(self.lookup("team1"));
@@ -217,25 +226,9 @@ Template.__define__("winner", (function() {
   var template = this;
   return HTML.DIV({
     "class": "winner"
-  }, HTML.Raw("\n  <h2>Vincitore</h2>\n  "), HTML.FORM({
-    action: ""
-  }, "\n    ", HTML.SELECT({
-    "class": "form-control",
-    style: "width:200px;",
-    name: "winner",
-    id: "winner"
-  }, "\n    ", UI.Each(function() {
-    return Spacebars.call(self.lookup("teams"));
-  }, UI.block(function() {
-    var self = this;
-    return [ "\n        ", HTML.OPTION({
-      value: function() {
-        return Spacebars.mustache(self.lookup("_id"));
-      }
-    }, function() {
-      return Spacebars.mustache(self.lookup("title"));
-    }), " \n      " ];
-  })), "\n    "), HTML.Raw('\n    <button class="btn btn-primary">Scegli</button>\n	<p>Pronostica la squadra vincitrice dei Mondiali 2014 entro e non oltre le 18.00 di Giovedì 12 giugno 2014.</p>\n  ')), "\n  ");
+  }, HTML.Raw("\n  <h2>Vincitore</h2>\n  "), HTML.H3(function() {
+    return Spacebars.mustache(Spacebars.dot(self.lookup("currentUser"), "winner_name"));
+  }), "\n  \n  ");
 }));
 
 Template.__define__("rules", (function() {

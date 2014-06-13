@@ -14,6 +14,7 @@ Meteor.subscribe("round");
 Meteor.subscribe("teams");
 Meteor.subscribe("visibleBets");
 Meteor.subscribe("hiddenBets");
+Meteor.subscribe("myBets");
 Meteor.subscribe("users");
 Meteor.subscribe("messages");
 

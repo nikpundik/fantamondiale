@@ -1,6 +1,6 @@
 Bets = new Meteor.Collection("bets");
 
-Bets.bet = function(round, game, team1, team2, bonus, userId) {
+Bets.bet = function(round, game, team1, team2, bonus, userId, defaultBet) {
 	if (Meteor.isServer) {
 		var user = Meteor.users.findOne({_id: userId});
 		Bets.insert({
@@ -11,6 +11,7 @@ Bets.bet = function(round, game, team1, team2, bonus, userId) {
             user_id: userId, 
             bonus: bonus,
             username: user.username,
+            defaultBet: defaultBet,
             created: new Date()
         });
 	};
