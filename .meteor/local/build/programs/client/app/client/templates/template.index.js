@@ -82,23 +82,37 @@ Template.__define__("rounds", (function() {
 Template.__define__("round", (function() {
   var self = this;
   var template = this;
-  return HTML.LI({
-    "class": "days"
-  }, "\n    \n    ", HTML.H2("\n      ", function() {
-    return Spacebars.mustache(self.lookup("end_at"));
-  }, " - ", function() {
-    return Spacebars.mustache(self.lookup("title"));
-  }, "\n      ", UI.If(function() {
+  return UI.If(function() {
     return Spacebars.dataMustache(self.lookup("isRoundStarted"), self.lookup("_id"));
   }, UI.block(function() {
     var self = this;
-    return [ " \n      ", HTML.SMALL("SCOMMESSE CHIUSE"), "\n      " ];
-  })), "\n    "), "\n		", HTML.UL("\n		  ", UI.Each(function() {
-    return Spacebars.call(self.lookup("games"));
-  }, UI.block(function() {
+    return [ "\n    ", HTML.LI({
+      "class": "days round-closed"
+    }, " \n      ", HTML.H2("\n        ", function() {
+      return Spacebars.mustache(self.lookup("end_at"));
+    }, " - ", function() {
+      return Spacebars.mustache(self.lookup("title"));
+    }, " \n        ", HTML.SMALL("SCOMMESSE CHIUSE"), "\n      "), "\n      ", HTML.UL("\n        ", UI.Each(function() {
+      return Spacebars.call(self.lookup("games"));
+    }, UI.block(function() {
+      var self = this;
+      return [ "\n            ", Spacebars.include(self.lookupTemplate("game")), "\n        " ];
+    })), "\n      "), "\n    "), "\n  " ];
+  }), UI.block(function() {
     var self = this;
-    return [ "\n      		", Spacebars.include(self.lookupTemplate("game")), "\n    	" ];
-  })), "\n    "), "\n	");
+    return [ "\n    ", HTML.LI({
+      "class": "days"
+    }, "\n      ", HTML.H2("\n        ", function() {
+      return Spacebars.mustache(self.lookup("end_at"));
+    }, " - ", function() {
+      return Spacebars.mustache(self.lookup("title"));
+    }, "\n      "), "\n      ", HTML.UL("\n        ", UI.Each(function() {
+      return Spacebars.call(self.lookup("games"));
+    }, UI.block(function() {
+      var self = this;
+      return [ "\n            ", Spacebars.include(self.lookupTemplate("game")), "\n        " ];
+    })), "\n      "), "\n    "), "\n  " ];
+  }));
 }));
 
 Template.__define__("game", (function() {
@@ -163,19 +177,24 @@ Template.__define__("bet", (function() {
     "class": [ "bet-default-", function() {
       return Spacebars.mustache(self.lookup("defaultBet"));
     } ]
-  }, "\n  ", HTML.B(function() {
+  }, "\n    ", HTML.B(function() {
     return Spacebars.mustache(self.lookup("username"));
-  }), " ", function() {
-    return Spacebars.mustache(self.lookup("team1"));
-  }, " - ", function() {
-    return Spacebars.mustache(self.lookup("team2"));
-  }, "\n  ", UI.If(function() {
+  }), "\n    ", UI.If(function() {
+    return Spacebars.dataMustache(self.lookup("shown"), self.lookup("team1"), self.lookup("team2"));
+  }, UI.block(function() {
+    var self = this;
+    return [ "\n    ", function() {
+      return Spacebars.mustache(self.lookup("team1"));
+    }, " - ", function() {
+      return Spacebars.mustache(self.lookup("team2"));
+    }, "\n    " ];
+  })), "\n    ", UI.If(function() {
     return Spacebars.call(self.lookup("bonus"));
   }, UI.block(function() {
     var self = this;
-    return [ "\n    ", HTML.SPAN({
+    return [ "\n      ", HTML.SPAN({
       style: "color:#F9C000"
-    }, HTML.B("BONUS")), "\n  " ];
+    }, HTML.B("BONUS")), "\n    " ];
   })), "\n  ");
 }));
 

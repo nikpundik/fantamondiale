@@ -10,7 +10,8 @@ Accounts.ui.config({
    passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
 
-Meteor.subscribe("round");
+Meteor.subscribe("pastRounds");
+Meteor.subscribe("nextRounds");
 Meteor.subscribe("teams");
 Meteor.subscribe("visibleBets");
 Meteor.subscribe("hiddenBets");
@@ -19,8 +20,25 @@ Meteor.subscribe("users");
 Meteor.subscribe("messages");
 
 Template.rounds.rounds = function () {
-	return Rounds.find({});
+	return Rounds.find({}, {sort: {start_at: 1}});
 };
+
+Template.round.isRoundStarted = function(roundId) {
+	var round = Rounds.findOne({_id: roundId});
+	return Rounds.isStarted(round);
+}
+
+/*
+Template.round.isRoundStarted = UI.emboxValue(
+	function(roundId) {
+		console.log(this.data);
+		console.log("QUERY " + roundId);
+		var round = Rounds.findOne({_id: roundId});
+		return Rounds.isStarted(round);
+	},
+	EJSON.equals
+);
+*/
 
 Template.game.events({
 
@@ -59,6 +77,10 @@ Template.game.events({
 
 Template.game.bets = function (game) {
 	return Bets.find({game_id: game});
+};
+
+Template.bet.shown = function(team1, team2) {
+    return team1 !== undefined && team2 !== undefined;
 };
 
 Template.admin.events({

@@ -1,5 +1,9 @@
-Meteor.publish("round", function () {
-	return Rounds.getCurrent();
+Meteor.publish("nextRounds", function () {
+	return Rounds.findNextRounds(3);
+});
+
+Meteor.publish("pastRounds", function () {
+	return Rounds.findPastRounds(2);
 });
 
 Meteor.publish("teams", function () {
@@ -11,32 +15,38 @@ Meteor.publish("bets", function () {
 });
 
 Meteor.publish("hiddenBets", function () {
+	/*
 	var user = Meteor.users.findOne(this.userId);
 	if (user!==undefined && user["admin"]!==undefined && user["admin"]) {
 		return Bets.find();
 	} else {
 		var startedRounds = Rounds.startedRoundIds();
-		console.log("hidden: " + Bets.find({round_id: {$nin: startedRounds}}, {fields: {team1: 0, team2: 0}}).count());
 		return Bets.find({round_id: {$nin: startedRounds}}, {fields: {team1: 0, team2: 0}});
 	}
+	*/
+	var startedRounds = Rounds.startedRoundIds();
+	return Bets.find({round_id: {$nin: startedRounds}}, {fields: {team1: 0, team2: 0}});
 });
 
 Meteor.publish("visibleBets", function () {
+	/*
 	var user = Meteor.users.findOne(this.userId);
 	if (user!==undefined && user["admin"]!==undefined && user["admin"]) {
 		return Bets.find();
 	} else {
 		var startedRounds = Rounds.startedRoundIds();
-		console.log("visible: " + Bets.find({round_id: {$in: startedRounds}}).count());
 		return Bets.find({round_id: {$in: startedRounds}});
 	}
+	*/
+	var startedRounds = Rounds.startedRoundIds();
+	return Bets.find({round_id: {$in: startedRounds}});
 });
 
 Meteor.publish("myBets", function () {
 	if (this.userId!==undefined) {
 		return Bets.find({user_id: this.userId});
 	} else {
-		return Bets.find({user_id: "to_be_fixed"});
+		return null;
 	}
 });
 

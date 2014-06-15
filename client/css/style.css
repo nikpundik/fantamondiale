@@ -148,6 +148,11 @@ h1, h2, h4{
 	
 }
 
+.round-closed .bet-form .btn
+{
+	opacity: 0.2;
+}
+
 .accounts-dialog{
 	width:330px;
 	text-align:right;

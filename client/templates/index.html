@@ -59,20 +59,32 @@
 </template>
 
 <template name="round">
-	<li class="days">
-    
-    <h2>
-      {{end_at}} - {{title}}
-      {{#if isRoundStarted _id}} 
-      <small>SCOMMESSE CHIUSE</small>
-      {{/if}}
-    </h2>
-		<ul>
-		  {{#each games}}
-      		{{> game}}
-    	{{/each}}
-    </ul>
-	</li>
+
+  {{#if isRoundStarted _id}}
+    <li class="days round-closed"> 
+      <h2>
+        {{end_at}} - {{title}} 
+        <small>SCOMMESSE CHIUSE</small>
+      </h2>
+      <ul>
+        {{#each games}}
+            {{> game}}
+        {{/each}}
+      </ul>
+    </li>
+  {{else}}
+    <li class="days">
+      <h2>
+        {{end_at}} - {{title}}
+      </h2>
+      <ul>
+        {{#each games}}
+            {{> game}}
+        {{/each}}
+      </ul>
+    </li>
+  {{/if}}
+
 </template>
 
 <template name="game">
@@ -102,10 +114,13 @@
 
 <template name="bet">
   <li class="bet-default-{{defaultBet}}">
-  <b>{{username}}</b> {{team1}} - {{team2}}
-  {{#if bonus}}
-    <span style="color:#F9C000"><b>BONUS</b></span>
-  {{/if}}
+    <b>{{username}}</b>
+    {{#if shown team1 team2}}
+    {{team1}} - {{team2}}
+    {{/if}}
+    {{#if bonus}}
+      <span style="color:#F9C000"><b>BONUS</b></span>
+    {{/if}}
   </li>
 </template>
 

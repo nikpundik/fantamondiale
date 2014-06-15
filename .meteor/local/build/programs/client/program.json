@@ -444,27 +444,27 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/templates/template.index.js?0712d5e4b078810921cd480baa303c2281bbf4b6",
-      "size": 10350,
-      "hash": "0712d5e4b078810921cd480baa303c2281bbf4b6"
+      "url": "/client/templates/template.index.js?35ca46c1307427adfd4d43424c6c83c3044de52a",
+      "size": 11247,
+      "hash": "35ca46c1307427adfd4d43424c6c83c3044de52a"
     },
     {
       "path": "app/client/scripts/client.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/scripts/client.js?ae026ed1c34e3618617aa0bac85d60567f9b72a4",
-      "size": 2767,
-      "hash": "ae026ed1c34e3618617aa0bac85d60567f9b72a4"
+      "url": "/client/scripts/client.js?703bf1de93a9f3e2e0281945a8ffde1994f97d40",
+      "size": 3355,
+      "hash": "703bf1de93a9f3e2e0281945a8ffde1994f97d40"
     },
     {
       "path": "app/client/scripts/helpers.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/scripts/helpers.js?2d67dabca2798cde25765328058a5e65377af5cd",
-      "size": 281,
-      "hash": "2d67dabca2798cde25765328058a5e65377af5cd"
+      "url": "/client/scripts/helpers.js?33e9c5dbfc432a31c32751ad415f95a3460708b0",
+      "size": 310,
+      "hash": "33e9c5dbfc432a31c32751ad415f95a3460708b0"
     },
     {
       "path": "app/collections/Bets.js",
@@ -489,9 +489,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/collections/Rounds.js?5c0306480cbdf36c4e952363727dd2a23fb809a6",
-      "size": 1211,
-      "hash": "5c0306480cbdf36c4e952363727dd2a23fb809a6"
+      "url": "/collections/Rounds.js?abcf2d9e10c9bb25d5d4225a2ff0c1cb193036e8",
+      "size": 1561,
+      "hash": "abcf2d9e10c9bb25d5d4225a2ff0c1cb193036e8"
     },
     {
       "path": "app/collections/Teams.js",
@@ -512,15 +512,15 @@
       "hash": "319f258aa08d06c650fb0fe2a87677364f4bb102"
     },
     {
-      "path": "8c4c2428cf05b0ccdccdb82920a75b07cd18daa3.css",
+      "path": "d61c266bf86cf67a3a4fde85cc5fa64c2f200f02.css",
       "where": "client",
       "type": "css",
       "cacheable": true,
-      "url": "/8c4c2428cf05b0ccdccdb82920a75b07cd18daa3.css",
-      "sourceMap": "8c4c2428cf05b0ccdccdb82920a75b07cd18daa3.css.map",
-      "sourceMapUrl": "/8c4c2428cf05b0ccdccdb82920a75b07cd18daa3.map",
-      "size": 134605,
-      "hash": "d95b02416ea7e78526382dc247181fe694863006"
+      "url": "/d61c266bf86cf67a3a4fde85cc5fa64c2f200f02.css",
+      "sourceMap": "d61c266bf86cf67a3a4fde85cc5fa64c2f200f02.css.map",
+      "sourceMapUrl": "/d61c266bf86cf67a3a4fde85cc5fa64c2f200f02.map",
+      "size": 134712,
+      "hash": "65750dfe0ec4d0396a8e4f3133cbb50f08e6a4b6"
     },
     {
       "path": "packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.eot",
