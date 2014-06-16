@@ -1,16 +1,28 @@
 (function(){Meteor.startup(function () {
+
+	Meteor.updateServerTime("time");
+	Meteor.updateServerTime("roundTime");
+    
     setInterval(function () {
-        Meteor.call("getServerTime", function (error, result) {
-            Session.set("time", result);
-        });
+        Meteor.updateServerTime("time");
     }, 1000);
+
+    setInterval(function () {
+        Meteor.updateServerTime("roundTime");
+    }, 1000*60);
+
 });
+
+Meteor.updateServerTime = function(sessionVariable) {
+	Meteor.call("getServerDate", function (error, result) {
+        Session.set(sessionVariable, result);
+    });	
+}
 
 Accounts.ui.config({
    passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
 
-//Meteor.subscribe("rounds");
 Meteor.subscribe("pastRounds");
 Meteor.subscribe("nextRounds");
 Meteor.subscribe("teams");
@@ -138,7 +150,8 @@ Template.chat.events({
 
 
 Template.time.time = function () {
-    return Session.get("time");
+	var time = new Date(Session.get("time"));
+    return time;
 };
 
 })();

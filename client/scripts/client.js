@@ -1,10 +1,26 @@
 Meteor.startup(function () {
+
+	Meteor.updateServerTime("time");
+	Meteor.updateServerTime("roundTime");
+    
     setInterval(function () {
-        Meteor.call("getServerTime", function (error, result) {
-            Session.set("time", result);
-        });
+        Meteor.updateServerTime("time");
     }, 1000);
+
+    //every second add to local server time and set session
+    //every minute reload time from server
+
+    setInterval(function () {
+        Meteor.updateServerTime("roundTime");
+    }, 1000*60);
+
 });
+
+Meteor.updateServerTime = function(sessionVariable) {
+	Meteor.call("getServerDate", function (error, result) {
+        Session.set(sessionVariable, result);
+    });	
+}
 
 Accounts.ui.config({
    passwordSignupFields: 'USERNAME_AND_EMAIL'
@@ -137,5 +153,6 @@ Template.chat.events({
 
 
 Template.time.time = function () {
-    return Session.get("time");
+	var time = new Date(Session.get("time"));
+    return time;
 };

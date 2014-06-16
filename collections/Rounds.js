@@ -24,12 +24,11 @@ Rounds.findPastRounds = function(howMany) {
 
 Rounds.isStarted = function(round) {
 	if (Meteor.isServer) {
-		//var time = new Date(2014, 5, 13, 19);
 		var time = new Date();   
 	} else {
 		//not reliable!
 		//get time from session, but updated with higher delay
-		var time = new Date();
+		var time = new Date(Session.get("roundTime"));
 	}
 	var offset = time.getTimezoneOffset();
     var hours = 16 - offset/60;

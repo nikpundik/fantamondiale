@@ -75,6 +75,11 @@ Meteor.methods({
         return _time;
     },
 
+    getServerDate: function () {
+        var _time = new Date().toString();
+        return _time;
+    },
+
     chat: function (message) {
         var user = Meteor.user();
         Messages.insert({message: message, time: new Date(), username: user.username});

@@ -453,9 +453,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/client/scripts/client.js?703bf1de93a9f3e2e0281945a8ffde1994f97d40",
-      "size": 3355,
-      "hash": "703bf1de93a9f3e2e0281945a8ffde1994f97d40"
+      "url": "/client/scripts/client.js?b5619e065b749c39b2653cd202d7721ee76a94e7",
+      "size": 3633,
+      "hash": "b5619e065b749c39b2653cd202d7721ee76a94e7"
     },
     {
       "path": "app/client/scripts/helpers.js",
@@ -489,9 +489,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/collections/Rounds.js?abcf2d9e10c9bb25d5d4225a2ff0c1cb193036e8",
-      "size": 1561,
-      "hash": "abcf2d9e10c9bb25d5d4225a2ff0c1cb193036e8"
+      "url": "/collections/Rounds.js?7480bbc2e11ec565e546ec235af649e63c6f14d7",
+      "size": 1496,
+      "hash": "7480bbc2e11ec565e546ec235af649e63c6f14d7"
     },
     {
       "path": "app/collections/Teams.js",
