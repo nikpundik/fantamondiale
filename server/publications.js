@@ -10,29 +10,23 @@ Meteor.publish("teams", function () {
 	return Teams.find();
 });
 
-Meteor.publishBets = function() {
-
+Meteor.publish("hiddenBets", function () {
 	var startedRoundIds = Rounds.startedRoundIds();
+	return Bets.find({round_id: {$nin: startedRoundIds}}, {fields: {team1: 0, team2: 0}});
+});
 
-	Meteor.publish("hiddenBets", function () {
-		return Bets.find({round_id: {$nin: startedRoundIds}}, {fields: {team1: 0, team2: 0}});
-	});
+Meteor.publish("visibleBets", function () {
+	var startedRoundIds = Rounds.startedRoundIds();
+	return Bets.find({round_id: {$in: startedRoundIds}});
+});
 
-	Meteor.publish("visibleBets", function () {
-		return Bets.find({round_id: {$in: startedRoundIds}});
-	});
-
-	Meteor.publish("myBets", function () {
-		if (this.userId !== undefined) {
-			return Bets.find({user_id: this.userId});
-		} else {
-			return null;
-		}
-	});
-
-}
-
-Meteor.publishBets();
+Meteor.publish("myBets", function () {
+	if (this.userId !== undefined) {
+		return Bets.find({user_id: this.userId});
+	} else {
+		return null;
+	}
+});
 
 Meteor.publish("users", function () {
     return Meteor.users.find({},
